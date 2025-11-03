@@ -7,27 +7,18 @@
         body {
             display: grid;
         }
-        .borderRainbow {
+        .customSize {
             box-sizing:     border-box;
             width:          50%;
             aspect-ratio:   1 / 1;
-            border: 3px solid lime;
-            border-radius: 1em;
-            background: red;
-            position: relative;
-            &::after {
-                content:"abc";
-                border-radius: 3em;
-                background: conic-gradient(blueviolet,
-                            blue, yellowgreen,
-                            yellow, orange,
-                            red, mediumvioletred,
-                            blueviolet);
-                position: absolute;
-                inset: -2em;
-                z-index: -1;
-            }
-
+            border: 3em solid black;
+            border-radius: 3em;
+        }
+        .borderRainbow:hover {
+            border-color: transparent;
+            background:
+                linear-gradient(canvas, canvas)   padding-box,
+                conic-gradient(#aaa, #bbb, #ccc) border-box;
         }
 
 
@@ -36,7 +27,8 @@
 
 <body>
 
-<div class="borderRainbow"></div>
+<div class="customSize borderRainbow"></div>
+<button class="borderRainbow">my button</button>
 
 </body>
 
