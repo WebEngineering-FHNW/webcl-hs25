@@ -8,9 +8,26 @@
             display: grid;
         }
         .borderRainbow {
-            box-sizing: border-box;
-            width: 50%;
-            aspect-ratio: 1 / 1;
+            box-sizing:     border-box;
+            width:          50%;
+            aspect-ratio:   1 / 1;
+            border: 3px solid lime;
+            border-radius: 1em;
+            background: red;
+            position: relative;
+            &::after {
+                content:"abc";
+                border-radius: 3em;
+                background: conic-gradient(blueviolet,
+                            blue, yellowgreen,
+                            yellow, orange,
+                            red, mediumvioletred,
+                            blueviolet);
+                position: absolute;
+                inset: -2em;
+                z-index: -1;
+            }
+
         }
 
 
@@ -19,7 +36,7 @@
 
 <body>
 
-<div class="borderRainbow">  </div>
+<div class="borderRainbow"></div>
 
 </body>
 
