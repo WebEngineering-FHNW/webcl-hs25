@@ -48,6 +48,7 @@
     font-size:          calc(var(--coord-length) / 3);
     font-weight:        bold;
     color:              transparent;
+    /*backface-visibility: hidden;*/
     &.show {
         background:     #fff5;
         color:          #0008;
