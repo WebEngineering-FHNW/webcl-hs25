@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Popover</title>
+    <style>
+
+        body {
+            min-height:         100dvb;
+            display:            grid;
+            grid-template-columns: 1fr;
+            place-items:        center;
+        }
+        .example {
+            width:              60dvi;
+            aspect-ratio:       16 / 9;
+            background-image:   url("https://unsplash.it/640/360");
+            background-size:    cover;
+            margin-inline:      auto;
+        }
+        .wobbly {
+            --skew-angle:           10deg;
+            /* avoid transforming the children to keep the sensitive area stable, or not ? */
+            /*transform-style:        preserve-3d;*/
+            transform-origin:       center center;
+            display:                grid;
+            grid-template-columns:  repeat(3,1fr);
+            grid-template-rows:     repeat(3,1fr);
+            transition:             transform .5s ease-out;
+            transform:              rotateX(calc(var(--x) * var(--skew-angle)))
+                                    rotateY(calc(var(--y) * var(--skew-angle)));
+            :has(&) {               /* how to get to the parent and keeping values in one place */
+                perspective:        200vmin;
+            }
+            &:has(:nth-child(1):hover) {--x:  1; --y: -1; }
+            &:has(:nth-child(2):hover) {--x:  1; --y:  0; }
+            &:has(:nth-child(3):hover) {--x:  1; --y:  1; }
+            &:has(:nth-child(4):hover) {--x:  0; --y: -1; }
+            &:has(:nth-child(5):hover) {--x:  0; --y:  0; }
+            &:has(:nth-child(6):hover) {--x:  0; --y:  1; }
+            &:has(:nth-child(7):hover) {--x: -1; --y: -1; }
+            &:has(:nth-child(8):hover) {--x: -1; --y:  0; }
+            &:has(:nth-child(9):hover) {--x: -1; --y:  1; }
+        }
+
+    </style>
+</head>
+<body>
+<div class="wobbly example">
+    <div></div>    <div></div>    <div></div>
+    <div></div>    <div></div>    <div></div>
+    <div></div>    <div></div>    <div></div>
+</div>
+
+
+</body>
+</html>
